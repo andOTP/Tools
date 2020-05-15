@@ -1,4 +1,22 @@
 #! /usr/bin/python3
+#
+# This script can be used to decrypt andOTP database files. But it can only be
+# used if the andOTP database was encrypted using a Password / PIN, if the
+# Android KeyStore was used this can't work.
+#
+# Dependencies:
+#  * Python 3
+#  * Pycryptodom (https://pypi.org/project/pycryptodome/)
+#
+# Usage:
+#  * You will need three things in order to decrypt the database:
+#     1) The password / PIN that was used to encrypt the database
+#     2) The database file:     secrets.dat
+#     3) The preferences file:  org.shadowice.flocke.andotp_preferences.xml
+#
+#  * Command to decrypt the database:
+#     python3 decrypt_database.py secrets.dat org.shadowice.flocke.andotp_preferences.xml <password>
+#
 
 from Crypto.Cipher import AES
 import base64
